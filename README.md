@@ -80,8 +80,8 @@ The following models and techniques were used in this project:
 
 ```bash
 # Clone the repo
-git clone <git@github.com:LudmilaAmriou/Random-forest.git>
-cd <repo_folder>
+git clone git@github.com:LudmilaAmriou/Random-forest.git
+cd Random-forest
 
 # Activate virtual environment - The one you created in step 1
 source myvenv/bin/activate  # Linux/Mac
