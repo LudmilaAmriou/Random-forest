@@ -98,32 +98,51 @@ jupyter notebook
 
 # Test Set Performance
 
-| Model                | Accuracy | Precision | Recall | F1    | AUC   |
-| -------------------- | -------- | --------- | ------ | ----- | ----- |
-| Baseline RF          | 0.965    | 1.0       | 0.905  | 0.950 | 0.994 |
-| Tuned RF             | 0.974    | 1.0       | 0.929  | 0.963 | 0.998 |
-| Top Features RF      | 0.974    | 1.0       | 0.929  | 0.963 | 0.995 |
-| GradientBoost RF     | 0.965    | 1.0       | 0.905  | 0.950 | 0.997 |
-| AdaBoost RF          | 0.974    | 1.0       | 0.929  | 0.963 | 0.996 |
-| SMOTE RF             | 0.974    | 1.0       | 0.929  | 0.963 | 0.999 |
-| Feature Selection RF | 0.965    | 1.0       | 0.905  | 0.950 | 0.994 |
+| Model                  | Accuracy | Precision | Recall | F1    | AUC    |
+| ---------------------- | -------- | --------- | ------ | ----- | ------ |
+| Baseline RF            | 0.956    | 1.0       | 0.881  | 0.937 | 0.9945 |
+| Tuned RF               | 0.974    | 1.0       | 0.929  | 0.963 | 0.9983 |
+| Top Features RF        | 0.974    | 1.0       | 0.929  | 0.963 | 0.9944 |
+| GradientBoost RF       | 0.965    | 1.0       | 0.905  | 0.950 | 0.9970 |
+| AdaBoost RF            | 0.974    | 1.0       | 0.929  | 0.963 | 0.9957 |
+| SMOTE RF               | 0.974    | 1.0       | 0.929  | 0.963 | 0.9970 |
+| Feature Engineering RF | 0.974    | 1.0       | 0.929  | 0.963 | 0.9993 |
 
-**Insights:**
+## Insights
 
-- **Accuracy:** All models maintain high performance (~96–97%), indicating minimal overfitting.
-- **Precision:** Perfect (1.0) across all models — very few false positives.
-- **Recall:** Slightly lower for Baseline, GradientBoost, and Feature Selection RF; Tuned RF, Top Features RF, AdaBoost, and SMOTE capture more malignant cases.
-- **F1-score:** High (0.95–0.96), confirming strong balance between precision and recall.
-- **AUC:** Near-perfect (0.994–0.999), showing excellent generalization.
+- **Accuracy:** Most enhanced models reach **0.9737**, improving over the baseline (**0.9561**).
+- **Precision:** All models achieve **1.0**, indicating **zero false positives**.
+- **Recall:**
+  - Highest (0.9286): Tuned RF, Top Features RF, AdaBoost RF, SMOTE RF, Feature Engineering RF
+  - Medium (0.9048): GradientBoost RF
+  - Lowest (0.8810): Baseline RF
+- **F1-score:** Follows the same trend as recall, with enhanced models reaching **0.9630**.
+- **AUC:**
+  - **Best AUC: Feature Engineering RF (0.999339)**
+  - Tuned RF also very strong (0.998347)
+  - SMOTE and GradientBoost around **0.9970**
+  - Lowest AUCs: Top Features RF (0.994378) and Baseline (0.994544)
 
-**Key Takeaways:**
+## Key Takeaways
 
-- Ensemble models (GradientBoost, AdaBoost) and SMOTE slightly improve recall without sacrificing precision.
-- Feature selection reduces dimensionality with minimal impact on generalization.
-- Overall, models are robust and generalize well to unseen data.
+- All enhanced models **outperform the baseline**, especially in recall and F1.
+- **Perfect precision** across all models: no false positives.
+- **Feature Engineering RF** delivers the **best AUC**, suggesting stronger generalization.
+- **Tuned RF, Top Features RF, AdaBoost RF, and SMOTE RF** perform almost identically.
+- **Top Features RF** achieves competitive performance despite dimensionality reduction.
+- **GradientBoost RF** improves over baseline but remains below the top-performing group.
 
-### Best Performing Model
+## Best Performing Model
 
-Based on test set evaluation, the **Random Forest with SMOTE** provides the best balance between high recall, accuracy, and AUC. This is particularly important for breast cancer detection, where minimizing false negatives is critical.
+Based on the combined evaluation of accuracy, recall, F1-score, and especially **AUC**,  
+the **Feature Engineering RF** model demonstrates the strongest overall performance.
 
-Other models such as Tuned RF, Top Features RF, and RF + GradientBoost/AdaBoost ensembles perform similarly, but SMOTE RF slightly improves AUC and recall, making it the preferred model.
+It offers:
+
+- High accuracy (0.973684)
+- Perfect precision (1.0)
+- Strong recall (0.928571)
+- Excellent F1-score (0.962963)
+- **Highest AUC (0.999339)**
+
+This makes it the most robust and reliable model for breast cancer classification in this study.
