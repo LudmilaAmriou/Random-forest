@@ -5,6 +5,8 @@
 This project focuses on predicting whether a breast tumor is **benign** or **malignant** using machine learning techniques.  
 It uses **Random Forest**, **Gradient Boosting**, and their **ensemble**, along with **feature engineering**, **feature selection**, and thorough **evaluation metrics** for performance assessment.
 
+Find [HERE](https://ueve-my.sharepoint.com/:w:/g/personal/20253305_etud_univ-evry_fr/IQCrhjhVBBUnQL3m5FyawRuvATbe32zNdAz_Kb7ZiSMwKTg?e=Myt0xR) the detailed report analysis
+
 ## Environment Setup
 
 ```bash
